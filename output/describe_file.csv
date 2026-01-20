@@ -393,3 +393,11 @@ download_time,name,source_format,url,event_uuid,data_type,data_size,threat_level
 2026-01-19T01:21:15.953704,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/b1269268-4781-4a07-a587-7f1cd5dc769a.json,b1269268-4781-4a07-a587-7f1cd5dc769a,json,206,2,2026-01-19T00:03:08
 2026-01-19T01:21:16.268677,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/f1a5046c-d010-49b3-b050-360deeeb4231.json,f1a5046c-d010-49b3-b050-360deeeb4231,json,887,2,2026-01-19T00:15:23
 2026-01-19T01:21:23.698613,Phishtank,csv,https://data.phishtank.com/data/online-valid.csv,,csv,46393,,
+2026-01-20T01:16:25.412873,IPsum-l5,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/5.txt,,text,2976,,
+2026-01-20T01:16:25.467992,IPsum-l4,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/4.txt,,text,9242,,
+2026-01-20T01:16:26.858367,abuse.ch-SSL,csv,https://sslbl.abuse.ch/blacklist/sslblacklist.csv,,csv,8802,,
+2026-01-20T01:16:27.048082,Alienvault-IP-Reputation,csv,https://reputation.alienvault.com/reputation.generic,,csv,609,,
+2026-01-20T01:16:27.057700,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/df0317fb-f241-490c-9c38-d1d210d6528a.json,df0317fb-f241-490c-9c38-d1d210d6528a,json,199,2,2026-01-20T00:03:07
+2026-01-20T01:16:27.082104,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/3fd639b7-fd09-43ee-9b19-49ab4e585530.json,3fd639b7-fd09-43ee-9b19-49ab4e585530,json,759,2,2026-01-20T00:15:19
+2026-01-20T01:16:32.394053,Phishtank,csv,https://data.phishtank.com/data/online-valid.csv,,csv,46367,,
+2026-01-20T01:16:32.484779,abuse.ch-Bazaar,misp,https://bazaar.abuse.ch/downloads/misp//72966c72-fbb8-4aac-9c83-4a57ef04147f.json,72966c72-fbb8-4aac-9c83-4a57ef04147f,json,1840,2,2026-01-20T00:03:01
