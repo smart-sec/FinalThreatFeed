@@ -401,3 +401,11 @@ download_time,name,source_format,url,event_uuid,data_type,data_size,threat_level
 2026-01-20T01:16:27.082104,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/3fd639b7-fd09-43ee-9b19-49ab4e585530.json,3fd639b7-fd09-43ee-9b19-49ab4e585530,json,759,2,2026-01-20T00:15:19
 2026-01-20T01:16:32.394053,Phishtank,csv,https://data.phishtank.com/data/online-valid.csv,,csv,46367,,
 2026-01-20T01:16:32.484779,abuse.ch-Bazaar,misp,https://bazaar.abuse.ch/downloads/misp//72966c72-fbb8-4aac-9c83-4a57ef04147f.json,72966c72-fbb8-4aac-9c83-4a57ef04147f,json,1840,2,2026-01-20T00:03:01
+2026-01-21T01:18:54.456087,IPsum-l5,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/5.txt,,text,3230,,
+2026-01-21T01:18:54.498170,IPsum-l4,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/4.txt,,text,9374,,
+2026-01-21T01:18:56.236319,abuse.ch-SSL,csv,https://sslbl.abuse.ch/blacklist/sslblacklist.csv,,csv,8802,,
+2026-01-21T01:18:56.310983,abuse.ch-Bazaar,misp,https://bazaar.abuse.ch/downloads/misp//673a7a36-7f67-4c72-939a-898ee63fc0fc.json,673a7a36-7f67-4c72-939a-898ee63fc0fc,json,1596,2,2026-01-21T00:03:01
+2026-01-21T01:18:56.361010,Alienvault-IP-Reputation,csv,https://reputation.alienvault.com/reputation.generic,,csv,609,,
+2026-01-21T01:18:56.394567,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/e1bf8d80-2faa-4be7-9131-9fdd5f3eb0bf.json,e1bf8d80-2faa-4be7-9131-9fdd5f3eb0bf,json,513,2,2026-01-21T00:03:07
+2026-01-21T01:18:56.418549,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/104aaf03-8a6c-4751-8e0a-ff31b6990650.json,104aaf03-8a6c-4751-8e0a-ff31b6990650,json,1102,2,2026-01-21T00:15:20
+2026-01-21T01:19:06.925316,Phishtank,csv,https://data.phishtank.com/data/online-valid.csv,,csv,46349,,
