@@ -409,3 +409,11 @@ download_time,name,source_format,url,event_uuid,data_type,data_size,threat_level
 2026-01-21T01:18:56.394567,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/e1bf8d80-2faa-4be7-9131-9fdd5f3eb0bf.json,e1bf8d80-2faa-4be7-9131-9fdd5f3eb0bf,json,513,2,2026-01-21T00:03:07
 2026-01-21T01:18:56.418549,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/104aaf03-8a6c-4751-8e0a-ff31b6990650.json,104aaf03-8a6c-4751-8e0a-ff31b6990650,json,1102,2,2026-01-21T00:15:20
 2026-01-21T01:19:06.925316,Phishtank,csv,https://data.phishtank.com/data/online-valid.csv,,csv,46349,,
+2026-01-22T01:19:09.185900,IPsum-l5,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/5.txt,,text,3406,,
+2026-01-22T01:19:09.221865,IPsum-l4,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/4.txt,,text,9461,,
+2026-01-22T01:19:10.919594,abuse.ch-SSL,csv,https://sslbl.abuse.ch/blacklist/sslblacklist.csv,,csv,8814,,
+2026-01-22T01:19:10.984451,abuse.ch-Bazaar,misp,https://bazaar.abuse.ch/downloads/misp//c2177d6d-f233-45b5-8dae-e5c565a3ffdd.json,c2177d6d-f233-45b5-8dae-e5c565a3ffdd,json,1964,2,2026-01-22T00:03:01
+2026-01-22T01:19:11.032206,Alienvault-IP-Reputation,csv,https://reputation.alienvault.com/reputation.generic,,csv,609,,
+2026-01-22T01:19:11.088045,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/df3077ab-0ad1-4640-a3ad-ffae72375ccd.json,df3077ab-0ad1-4640-a3ad-ffae72375ccd,json,1188,2,2026-01-22T00:15:20
+2026-01-22T01:19:18.165437,Phishtank,csv,https://data.phishtank.com/data/online-valid.csv,,csv,46990,,
+2026-01-22T01:19:18.185926,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/91289567-8dcf-4531-b631-bda4ef53acb6.json,91289567-8dcf-4531-b631-bda4ef53acb6,json,319,2,2026-01-22T00:03:06
