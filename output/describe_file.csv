@@ -660,3 +660,12 @@ download_time,name,source_format,url,event_uuid,data_type,data_size,threat_level
 2026-02-22T01:44:25.282422,abuse.ch-Bazaar,misp,https://bazaar.abuse.ch/downloads/misp//083d8e8a-62eb-4fbf-b0e7-71131b13c556.json,083d8e8a-62eb-4fbf-b0e7-71131b13c556,json,928,2,2026-02-22T00:03:02
 2026-02-22T01:44:25.298946,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/0aca6369-fb21-4fb6-9bd5-a8ea9069bf2a.json,0aca6369-fb21-4fb6-9bd5-a8ea9069bf2a,json,716,2,2026-02-22T00:15:22
 2026-02-22T01:44:26.372751,CIRCL OSINT Feed,misp,https://www.circl.lu/doc/misp/feed-osint//08e5c8f3-3b24-4224-8253-2401d873e387.json,08e5c8f3-3b24-4224-8253-2401d873e387,json,2215,2,2026-02-21T14:00:06
+2026-02-23T01:45:13.721583,IPsum-l5,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/5.txt,,text,4805,,
+2026-02-23T01:45:13.787365,IPsum-l4,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/4.txt,,text,9740,,
+2026-02-23T01:45:15.733229,abuse.ch-SSL,csv,https://sslbl.abuse.ch/blacklist/sslblacklist.csv,,csv,8997,,
+2026-02-23T01:45:15.777117,Alienvault-IP-Reputation,csv,https://reputation.alienvault.com/reputation.generic,,csv,609,,
+2026-02-23T01:45:15.862867,abuse.ch-Bazaar,misp,https://bazaar.abuse.ch/downloads/misp//4f81efc2-4d95-43f4-be14-046b6bf0ba13.json,4f81efc2-4d95-43f4-be14-046b6bf0ba13,json,3016,2,2026-02-23T00:03:02
+2026-02-23T01:45:15.961973,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/b30f6cd0-7820-48cc-bd33-2995468a9dfc.json,b30f6cd0-7820-48cc-bd33-2995468a9dfc,json,293,2,2026-02-23T00:03:07
+2026-02-23T01:45:16.031633,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/4846f1dd-671b-4dd8-86c9-b70e5f406d23.json,4846f1dd-671b-4dd8-86c9-b70e5f406d23,json,2337,2,2026-02-23T00:15:21
+2026-02-23T01:45:24.658414,Phishtank,csv,https://data.phishtank.com/data/online-valid.csv,,csv,56089,,
+2026-02-23T01:45:36.770953,CIRCL OSINT Feed,misp,https://www.circl.lu/doc/misp/feed-osint//62fda2ec-e5d4-4428-afb6-1f0d3a55ec12.json,62fda2ec-e5d4-4428-afb6-1f0d3a55ec12,json,2387,2,2026-02-22T18:04:17
