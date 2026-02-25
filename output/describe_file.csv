@@ -677,3 +677,12 @@ download_time,name,source_format,url,event_uuid,data_type,data_size,threat_level
 2026-02-24T01:43:04.702460,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/0d94ef47-b307-422a-af20-bb5874785689.json,0d94ef47-b307-422a-af20-bb5874785689,json,1111,2,2026-02-24T00:03:07
 2026-02-24T01:43:04.729968,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/e9ba46f6-d89e-47ee-a986-25d962ce7aac.json,e9ba46f6-d89e-47ee-a986-25d962ce7aac,json,1201,2,2026-02-24T00:15:19
 2026-02-24T01:43:14.047093,CIRCL OSINT Feed,misp,https://www.circl.lu/doc/misp/feed-osint//357a3a25-95f9-41b7-8870-9cc54d260d69.json,357a3a25-95f9-41b7-8870-9cc54d260d69,json,1192,2,2026-02-23T17:00:58
+2026-02-25T01:45:18.330917,IPsum-l4,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/4.txt,,text,9921,,
+2026-02-25T01:45:18.354243,IPsum-l5,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/5.txt,,text,4780,,
+2026-02-25T01:45:20.163588,abuse.ch-SSL,csv,https://sslbl.abuse.ch/blacklist/sslblacklist.csv,,csv,9074,,
+2026-02-25T01:45:20.244410,abuse.ch-Bazaar,misp,https://bazaar.abuse.ch/downloads/misp//3f065a80-2ca4-4961-9431-2442b1f1be0c.json,3f065a80-2ca4-4961-9431-2442b1f1be0c,json,1860,2,2026-02-25T00:03:01
+2026-02-25T01:45:20.304934,Alienvault-IP-Reputation,csv,https://reputation.alienvault.com/reputation.generic,,csv,609,,
+2026-02-25T01:45:20.336928,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/3e57bb56-2216-4c3d-8ce5-af79db85b9d1.json,3e57bb56-2216-4c3d-8ce5-af79db85b9d1,json,940,2,2026-02-25T00:15:22
+2026-02-25T01:45:20.346195,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/9b0b294e-ab2b-4560-96c5-b66aa18635bf.json,9b0b294e-ab2b-4560-96c5-b66aa18635bf,json,396,2,2026-02-25T00:03:07
+2026-02-25T01:45:29.245444,Phishtank,csv,https://data.phishtank.com/data/online-valid.csv,,csv,56184,,
+2026-02-25T01:45:30.188165,CIRCL OSINT Feed,misp,https://www.circl.lu/doc/misp/feed-osint//b0a9ddc2-de1c-49cb-a8b5-2cd8803e7c35.json,b0a9ddc2-de1c-49cb-a8b5-2cd8803e7c35,json,143,2,2026-02-24T16:00:08
