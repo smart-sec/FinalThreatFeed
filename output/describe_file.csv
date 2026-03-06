@@ -758,3 +758,12 @@ download_time,name,source_format,url,event_uuid,data_type,data_size,threat_level
 2026-03-05T01:42:36.726043,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/83a1c3ab-c890-4f73-9964-b45667bf195c.json,83a1c3ab-c890-4f73-9964-b45667bf195c,json,619,2,2026-03-05T00:15:28
 2026-03-05T01:42:36.872742,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/a86e90f3-8e1c-4c1f-8955-db98075431c4.json,a86e90f3-8e1c-4c1f-8955-db98075431c4,json,431,2,2026-03-05T00:03:06
 2026-03-05T01:42:37.992446,CIRCL OSINT Feed,misp,https://www.circl.lu/doc/misp/feed-osint//1a7bb6df-0e3f-4ae3-9329-bfe19436ba3e.json,1a7bb6df-0e3f-4ae3-9329-bfe19436ba3e,json,1893,2,2026-03-04T17:00:07
+2026-03-06T01:44:18.976969,IPsum-l5,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/5.txt,,text,3900,,
+2026-03-06T01:44:19.065342,IPsum-l4,text,https://raw.githubusercontent.com/stamparm/ipsum/master/levels/4.txt,,text,8455,,
+2026-03-06T01:44:19.108319,Alienvault-IP-Reputation,csv,https://reputation.alienvault.com/reputation.generic,,csv,609,,
+2026-03-06T01:44:20.904856,abuse.ch-SSL,csv,https://sslbl.abuse.ch/blacklist/sslblacklist.csv,,csv,9176,,
+2026-03-06T01:44:20.947327,abuse.ch-URLhasus,misp,https://urlhaus.abuse.ch/downloads/misp/ef7682d3-1ff9-4536-aff4-709634c1c976.json,ef7682d3-1ff9-4536-aff4-709634c1c976,json,955,2,2026-03-06T00:15:26
+2026-03-06T01:44:20.984985,abuse.ch-Bazaar,misp,https://bazaar.abuse.ch/downloads/misp//c568d6f8-f7e0-4167-87f8-af154ef4a6f2.json,c568d6f8-f7e0-4167-87f8-af154ef4a6f2,json,1644,2,2026-03-06T00:03:02
+2026-03-06T01:44:29.574121,Phishtank,csv,https://data.phishtank.com/data/online-valid.csv,,csv,56183,,
+2026-03-06T01:44:29.604302,abuse.ch,misp,https://threatfox.abuse.ch/downloads/misp/491595cc-0454-4d6a-94ea-98219603a31a.json,491595cc-0454-4d6a-94ea-98219603a31a,json,769,2,2026-03-06T00:03:06
+2026-03-06T01:44:38.964658,CIRCL OSINT Feed,misp,https://www.circl.lu/doc/misp/feed-osint//8fc3c0c8-f8e9-497d-9109-a6ec8c562f07.json,8fc3c0c8-f8e9-497d-9109-a6ec8c562f07,json,2380,2,2026-03-05T23:00:06
