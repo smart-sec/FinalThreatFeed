@@ -20,7 +20,7 @@ class FeedFetcher:
     支持MISP manifest类型、CSV、Text和JSON类型feed
     """
     
-    def __init__(self, fetcher_config: Dict[str, Any] = None,  writer: FeedWriter = None):
+    def __init__(self, fetcher_config: Dict[str, Any] = None,  writer: 'FeedWriter' = None):
             """
             :param writer: FeedWriter 实例
             """
