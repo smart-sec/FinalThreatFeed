@@ -51,51 +51,52 @@ class READMEGenerator:
         logger.info(f"Set status for {len(feed_status)} feeds")
     
     def generate_readme(self):
-        """生成README.md文件"""
+        """Generate README.md file"""
         logger.info("Generating README.md...")
         
-        # 构建README内容
+        # Build README content
         content = []
         
-        # 项目标题
+        # Project title
         content.append("# FinalThreatFeed")
         content.append("")
-        content.append("🚀 **高性能开源威胁情报聚合引擎**")
+        content.append("🚀 **High-Performance Open Source Threat Intelligence Aggregation Engine**")
         content.append("")
         
-        # 项目简介
-        content.append("## 📖 项目简介")
+        # Project introduction
+        content.append("## 📖 Project Introduction")
         content.append("")
-        content.append("FinalThreatFeed 是一款现代化的威胁情报（CTI）自动化采集与融合框架。它基于高性能异步架构设计，旨在解决多源情报采集难、格式混乱、数据冗余等痛点。")
+        content.append("FinalThreatFeed is a modern threat intelligence (CTI) automated collection and fusion framework. It is designed based on high-performance asynchronous architecture to solve pain points such as difficulty in multi-source intelligence collection, format confusion, and data redundancy.")
         content.append("")
-        content.append("通过标准化的数据处理管道，FinalThreatFeed 能够从全球开源情报源中持续汲取高价值数据，自动完成清洗、去重与结构化处理，为企业的安全防御体系提供精准、鲜活的威胁情报支撑。")
+        content.append("Through a standardized data processing pipeline, FinalThreatFeed continuously extracts high-value data from global open-source intelligence sources, automatically completes cleaning, deduplication, and structuring processes, providing accurate and fresh threat intelligence support for enterprise security defense systems.")
         content.append("")
         
-        # 核心特性
-        content.append("### ✨ 核心特性")
+        # Core features
+        content.append("### ✨ Core Features")
         content.append("")
-        content.append("- ⚡ **极速异步架构**: 采用 Python Asyncio + HTTPX 构建高并发采集核心，大幅提升数据吞吐效率。")
-        content.append("- 🧩 **全栈格式兼容**: 原生支持 MISP、CSV、Text 等主流情报格式，轻松打破数据源格式壁垒。")
-        content.append("- 🧹 **智能清洗去重**: 内置精细化数据治理算法，自动剔除噪声与重复数据，确保情报的高信噪比。")
-        content.append("- 🔄 **全生命周期管理**: 自动化的情报老化与更新机制，确保本地情报库始终保持最新状态。")
-        content.append("- 🛠️ **灵活扩展配置**: 基于 YAML 的声明式配置管理，无需编码即可快速接入新的情报源。")
-        content.append("- 🏷️ **深度 IOC 识别**: 自动解析并分类 IP、Domain、URL 等关键威胁指标，赋能精细化分析。")
+        content.append("- ⚡ **High-Speed Asynchronous Architecture**: Built with Python Asyncio + HTTPX for high concurrency collection core, significantly improving data throughput efficiency.")
+        content.append("- 🧩 **Full-Stack Format Compatibility**: Native support for mainstream intelligence formats such as MISP, CSV, Text, and RSS, easily breaking down data source format barriers.")
+        content.append("- 🧹 **Intelligent Cleaning and Deduplication**: Built-in refined data governance algorithms automatically eliminate noise and duplicate data, ensuring high signal-to-noise ratio of intelligence.")
+        content.append("- 🔄 **Full Lifecycle Management**: Automated intelligence aging and update mechanisms ensure the local intelligence library always stays up-to-date.")
+        content.append("- 🛠️ **Flexible Extension Configuration**: YAML-based declarative configuration management, allowing quick access to new intelligence sources without coding.")
+        content.append("- 🏷️ **Deep IOC Identification**: Automatically parse and classify key threat indicators such as IP, Domain, URL, enabling refined analysis.")
+        content.append("- 🤖 **LLM-Powered Unstructured Data Processing**: Leverages Google Gemini API to extract IOCs from unstructured data sources like RSS feeds, enhancing intelligence coverage.")
         content.append("")
-        # 更新时间
-        content.append(f"> 🕒 **最后更新时间:** `{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}`")
+        # Update time
+        content.append(f"> 🕒 **Last Update Time:** `{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}`")
         content.append("")
 
         
-        # 订阅列表
-        content.append("## 📡 订阅源状态监控")
+        # Subscription list
+        content.append("## 📡 Feed Status Monitoring")
         content.append("")
-        # 移除描述列，保持表格简洁大气
-        content.append("| 运行状态 | 情报源名称 | 格式类型 | 源地址 (URL) |")
+        # Remove description column to keep the table concise
+        content.append("| Status | Feed Name | Format Type | Source Address (URL) |")
         content.append("|:---:|---|:---:|---|")
         
-        # 添加订阅行
+        # Add subscription rows
         for feed in self.feeds_data:
-            # 状态标识
+            # Status indicator
             status = self.feed_status.get(feed['name'], 'disabled')
             if status == 'alive':
                 status_emoji = '🟢'
@@ -104,69 +105,80 @@ class READMEGenerator:
             else:
                 status_emoji = '⚫'
             
-            # 订阅信息
+            # Feed information
             name = feed['name']
             feed_type = feed['source_format']
             url = feed.get('url', '-')
             
-            # 添加行
+            # Add row
             content.append(f"| {status_emoji} | **{name}** | `{feed_type}` | {url} |")
         
         content.append("")
         
-        # 状态说明
-        content.append("#### 📊 运行状态图例")
-        content.append("- 🟢 **运行正常**: 成功连接并获取最新情报数据")
-        content.append("- 🔴 **采集异常**: 连接超时或源数据格式错误")
-        content.append("- ⚫ **已禁用**: 当前配置下未启用的情报源")
+        # Status explanation
+        content.append("#### 📊 Status Legend")
+        content.append("- 🟢 **Running Normally**: Successfully connected and obtained latest intelligence data")
+        content.append("- 🔴 **Collection Error**: Connection timeout or source data format error")
+        content.append("- ⚫ **Disabled**: Intelligence source not enabled in current configuration")
         content.append("")
         
-        # 使用说明
-        content.append("## 🚀 快速开始")
+        # LLM Technology Introduction
+        content.append("## 🤖 LLM-Powered Intelligence Processing")
         content.append("")
-        content.append("### 1. 环境准备")
+        content.append("FinalThreatFeed integrates cutting-edge Large Language Model (LLM) technology to process unstructured threat intelligence data, particularly from RSS sources. Here's how it works:")
+        content.append("")
+        content.append("1. **Intelligent Content Extraction**: Uses Google Gemini API to analyze web content from RSS feeds and automatically extract IOCs (Indicators of Compromise).")
+        content.append("2. **Advanced Data Cleaning**: Automatically removes evasion symbols like [.] or [at] and normalizes data to lowercase.")
+        content.append("3. **Structured Output**: Converts unstructured text into standardized JSON format for seamless integration with the intelligence pipeline.")
+        content.append("4. **Enhanced Coverage**: Expands intelligence sources beyond traditional structured formats to include rich unstructured data from security blogs, threat reports, and news sources.")
+        content.append("")
+        
+        # Quick start
+        content.append("## 🚀 Quick Start")
+        content.append("")
+        content.append("### 1. Environment Setup")
         content.append("```bash")
         content.append("pip install -r requirements.txt")
         content.append("```")
         content.append("")
-        content.append("### 2. 启动引擎")
+        content.append("### 2. Start the Engine")
         content.append("```bash")
         content.append("python main.py")
         content.append("```")
         content.append("")
         
-        # 配置说明
-        content.append("## ⚙️ 配置指南")
+        # Configuration guide
+        content.append("## ⚙️ Configuration Guide")
         content.append("")
-        content.append("所有情报源均通过 `config/feeds.yaml` 进行声明式管理，支持灵活的自定义扩展：")
+        content.append("All intelligence sources are managed declaratively through `config/feeds.yaml`, supporting flexible custom extensions:")
         content.append("")
         content.append("```yaml")
         content.append("feeds:")
-        # 使用单引号包裹，防止双引号转义问题
-        content.append('  - name: "Feed名称"')
+        # Use single quotes to prevent double quote escape issues
+        content.append('  - name: "Feed Name"')
         content.append('    enabled: true')
-        content.append('    url: "[https://example.com/feed.csv](https://example.com/feed.csv)"')
-        content.append('    source_format: "csv"  # 支持 csv, text, misp')
-        content.append('    description: "简短的情报源描述"')
-        content.append("    # 不同类型的源支持特定的高级配置参数")
+        content.append('    url: "https://example.com/feed.csv"')
+        content.append('    source_format: "csv"  # Supports csv, text, misp, rss')
+        content.append('    description: "Brief feed description"')
+        content.append('    # Different types of sources support specific advanced configuration parameters')
         content.append("```")
         content.append("")
         
-        # 输出路径
-        content.append("## 📂 数据产出")
+        # Output paths
+        content.append("## 📂 Data Output")
         content.append("")
-        content.append("- `output/description.json`: **情报源下载描述**")
-        content.append("- `output/collections.csv`: **原始采集数据** (增量缓存)")
-        content.append("- `output/final_threat.csv`: **最终情报库** (已清洗、去重、标准化的全量高价值情报)")
-        content.append("")
-        
-        # 许可证
-        content.append("## 📄 开源协议")
-        content.append("")
-        content.append("本项目遵循 [MIT License](LICENSE) 开源协议。")
+        content.append("- `output/description.json`: **Intelligence Source Download Description**")
+        content.append("- `output/collections.csv`: **Raw Collection Data** (incremental cache)")
+        content.append("- `output/final_threat.csv`: **Final Intelligence Database** (cleaned, deduplicated, standardized high-value intelligence)")
         content.append("")
         
-        # 写入文件
+        # License
+        content.append("## 📄 Open Source License")
+        content.append("")
+        content.append("This project follows the [MIT License](LICENSE) open source agreement.")
+        content.append("")
+        
+        # Write to file
         try:
             with open(self.readme_path, 'w', encoding='utf-8') as f:
                 f.write('\n'.join(content))
