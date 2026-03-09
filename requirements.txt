@@ -3,3 +3,4 @@ pyyaml
 pandas
 python-dateutil
 google-genai
+feedparser
