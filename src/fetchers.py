@@ -9,7 +9,7 @@ import os
 import pandas as pd
 import io
 import feedparser
-from openai import OpenAI
+
 logger = logging.getLogger("FeedFetcher")
 from google import genai
 from google.genai import types
