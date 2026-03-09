@@ -23,7 +23,10 @@ fetcher:
   time_range_days: 10
   # 用户代理字符串
   user_agent: "FinalThreatFeed/1.0"
+# config/setting.yaml 中的 llm_config 配置
 
 # collector配置
 collector:  
   keep_days: 60
+
+

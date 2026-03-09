@@ -55,7 +55,7 @@ class FeedWriter:
         logger.info("FeedWriter stopped.")
 
 
-    async def enqueue_generic(self, feed_name: str, attribute: Dict):
+    async def enqueue_generic(self, feed_name: str, indicator_dict: Dict):
         """
         通用入队接口。
         注意：调用此接口前，data 必须已经是符合 collections.csv 字段结构的字典。
@@ -63,11 +63,11 @@ class FeedWriter:
         """
         
         data = {
-            'timestamp': attribute.get('timestamp', datetime.now().timestamp()),
+            'timestamp': indicator_dict.get('timestamp', datetime.now().timestamp()),
             'feed_name': feed_name,
-            'type': attribute.get('type', ''),
-            'value': attribute.get('value', ''),
-            'comment': attribute.get('comment', '')
+            'type': indicator_dict.get('type', ''),
+            'value': indicator_dict.get('value', ''),
+            'comment': indicator_dict.get('comment', '')
         }
         await self.queue.put({'content': data})
     async def _consume_loop(self):

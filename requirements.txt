@@ -2,3 +2,4 @@ httpx
 pyyaml
 pandas
 python-dateutil
+google-genai

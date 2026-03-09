@@ -8,9 +8,11 @@ from typing import Dict, List, Any, Optional
 import os
 import pandas as pd
 import io
-
+import feedparser
+from openai import OpenAI
 logger = logging.getLogger("FeedFetcher")
-
+from google import genai
+from google.genai import types
 
 class FeedFetcher:
     """
@@ -18,7 +20,7 @@ class FeedFetcher:
     支持MISP manifest类型、CSV、Text和JSON类型feed
     """
     
-    def __init__(self, fetcher_config: Dict[str, Any] = None, writer = None):
+    def __init__(self, fetcher_config: Dict[str, Any] = None,  writer: FeedWriter = None):
             """
             :param writer: FeedWriter 实例
             """
@@ -30,6 +32,7 @@ class FeedFetcher:
             self.time_range_days = fetcher_config["time_range_days"]
             self.user_agent = fetcher_config.get("user_agent", "FinalThreatFeed/1.0")
             self.headers = {"User-Agent": self.user_agent}
+
             
             # 确保输出目录存在
             os.makedirs(os.path.dirname(self.describe_file), exist_ok=True)
@@ -462,7 +465,100 @@ class FeedFetcher:
         })
         
         return content
+
+    async def _process_rss_feed(self, feed_config: Dict[str, Any]):
+        """从RSS获取内容并利用LLM提取IOC"""
+        name = feed_config["name"]
+        url = feed_config["url"]
+        
+        try:
+            # 1. 下载并解析 RSS
+            async with httpx.AsyncClient(timeout=self.timeout) as client:
+                resp = await client.get(url, headers=self.headers)
+                feed = feedparser.parse(resp.text)
+            # 2. 读取描述文件，检查已存在的条目
+            with open(self.describe_file, 'r', newline='', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                existing_urls = set(row['url'] for row in reader)
+
+            # 3. 遍历条目
+            for entry in feed.entries: # 限制为10条，方便调试 
+                # 跳过已存在的条目
+                if entry.link in existing_urls:
+                    print(f"Skip existing URL: {entry.link}")
+                    continue
+
+                # 4. 调用 LLM 提取IOC
+                content = await self._fetch_single_file(entry.link, entry.title)
+
+                content = content.lower()
+                #跳过不存在IOC或Indicator的条目
+                if not content or 'ioc' not in content or 'indicator' not in content:
+                    print(f"Skip empty or no indicator URL: {entry.link}")
+                    continue
+                response_str = await self._call_llm_to_extract(entry.link)
+                for ioc in eval(response_str)['indicators']:
+                    ioc_dict = {
+                        'timestamp': datetime.now().timestamp(),
+                        'type': ioc['type'],
+                        'value': ioc['value'],
+                        'comment': f"From RSS: {entry.title}"
+                    }
+                
+                    await self.writer.enqueue_generic(name, ioc_dict)
+
+                # 记录情报元数据（Describe File）信息
+                download_time = datetime.now().isoformat()
+                intelligence_count = len(eval(response_str)['indicators'])
+                self._record_intelligence({
+                'download_time': download_time,
+                'name': entry.title,
+                'source_format': 'rss',
+                'url': entry.link,
+                'event_uuid': '',
+                'data_type': 'rss',
+                'data_size': intelligence_count,  # 统计有效提取的条数
+                'threat_level': '',
+                'event_date': ''
+                })
     
+            return True
+        except Exception as e:
+            logger.error(f"[{name}] RSS LLM Fetch error: {e}")
+            return False
+    async def _call_llm_to_extract(self, target_url: str) -> Dict[str, Any]:
+        """
+        调用LLM提取IOC
+        :param target_url: 输入URL
+        :return: 提取到的IOC列表
+        """
+
+        client = genai.Client(os.getenv('GEMINI_API_KEY'))
+        # 2. 优化 Prompt：强调清洗规则
+        prompt_text = f"""
+        你是一名资深安全运营专家。请阅读以下网页内容：{target_url}
+
+        任务：
+        1. 提取其中所有的域名 (domain) 和 IPv4 地址 (ip)。
+        2. 清洗数据：移除 [.] 或 [at] 等规避符号，统一转为小写。
+        3. 严格按 JSON 格式返回，不要包含任何解释性文字或 Markdown 标签。
+
+        输出格式示例：
+        {{"indicators":[{{"value":"example.com","type":"domain"}},{{"value":"1.1.1.1","type":"ip"}}]}}
+        """
+        # 3. 使用正确的配置，建议开启 Response Mime Type 约束
+        response = client.models.generate_content(
+            model="gemini-3.1-flash-lite-preview", # 建议使用稳定版本
+            contents=prompt_text,
+            config=types.GenerateContentConfig(
+                # 如果模型支持，可以直接通过工具读取网页，或者在 contents 中直接传入
+                tools=[{"url_context": {}}], # 现阶段通过搜索或抓取工具更稳妥
+                response_mime_type="application/json" # 强制模型返回纯 JSON
+            )
+        )
+        return response.text
+
+
     async def fetch_feed(self, feed_cfg: Dict) -> Any:
         """
         统一的feed获取入口方法
@@ -483,6 +579,8 @@ class FeedFetcher:
                 result = await self._process_csv_feed(feed_cfg)
             elif source_format == "text":
                 result = await self._process_text_feed(feed_cfg)
+            elif source_format == "rss":
+                result = await self._process_rss_feed(feed_cfg)
             else:
                 # 默认为文本处理
                 logger.warning(f"[{name}] Unknown format '{source_format}', treating as text")
